@@ -68,7 +68,7 @@ private:
 		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << "User won times   :      " << Results.Player1WonTimes << endl;
 		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << "Cpu won times    :      " << Results.Player2WonTimes << endl;
 		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << "Draw times       :      " << Results.DrawTimes << endl;
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << "Final winner     :      " << Game.getWinnerName(Results.Winner) << endl;
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << "Final winner     :      " << Game.WinnerName(Results.Winner) << endl;
 
 		cout << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "________________________________________________\n";
 	}
@@ -80,9 +80,9 @@ private:
 		_ChangeScreenColor(RoundResults.RoundWinner);
 
 		cout << "\n" << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "___________________ Round[" << RoundResults.RoundNumber << "] ___________________\n\n";
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " User choice        :      " << clsPlayer::getChoiceName(RoundResults.Player1Choice) << endl;
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Cpu choice         :      " << clsPlayer::getChoiceName(RoundResults.Player2Choice) << endl;
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Round winner       :      " << Game.getWinnerName(RoundResults.RoundWinner) << endl;
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " User choice        :      " << clsPlayer::ChoiceName(RoundResults.Player1Choice) << endl;
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Cpu choice         :      " << clsPlayer::ChoiceName(RoundResults.Player2Choice) << endl;
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Round winner       :      " << Game.WinnerName(RoundResults.RoundWinner) << endl;
 		cout << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "________________________________________________\n";
 	}
 
@@ -123,6 +123,9 @@ private:
 		short Rounds = _ReadTotalRounds();
 
 		clsGame Game(clsPlayer::enPlayer::ePlayer1, clsPlayer::enPlayer::eCpu, Rounds);
+
+		Game.Player1.Name = "USER";
+		Game.Player2.Name = "CPU";
 
 		for (short i = 0; i < Rounds; i++)
 		{

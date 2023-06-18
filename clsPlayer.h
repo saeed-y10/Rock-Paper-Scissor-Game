@@ -80,18 +80,19 @@ public:
 		_Choice = (enGameChoice)clsUtil::RandomNumber(1, 3);
 	}
 
-	static string getChoiceName(enGameChoice Choice)
+	static string ChoiceName(enGameChoice Choice)
 	{
 		string Choices[3] = {"Rock", "Paper", "Scissor"};
 
 		return Choices[Choice - 1];
 	}
 
-	string getChoiceName()
+	string ChoiceName()
 	{
-		return getChoiceName(_Choice);
+		return ChoiceName(_Choice);
 	}
 
+	// get current player enum
 	enPlayer getPlayer()
 	{
 		return _Player;

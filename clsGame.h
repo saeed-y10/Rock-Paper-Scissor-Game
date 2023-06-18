@@ -193,7 +193,7 @@ public:
 	}
 
 	// get winner name by given enWinner enum
-	string getWinnerName(enWinner Winner)
+	string WinnerName(enWinner Winner)
 	{
 		switch (Winner)
 		{
