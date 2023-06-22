@@ -75,14 +75,14 @@ private:
 
 	static void _PrintRoundResults(clsGame Game, short RoundNumber)
 	{
-		clsGame::stRoundResults RoundResults = Game.getRoundResults(RoundNumber);
+		clsGame::stRoundResults* RoundResults = Game.getRoundResults(RoundNumber);
 		
-		_ChangeScreenColor(RoundResults.RoundWinner);
+		_ChangeScreenColor(RoundResults->RoundWinner);
 
-		cout << "\n" << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "___________________ Round[" << RoundResults.RoundNumber << "] ___________________\n\n";
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " User choice        :      " << clsPlayer::ChoiceName(RoundResults.Player1Choice) << endl;
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Cpu choice         :      " << clsPlayer::ChoiceName(RoundResults.Player2Choice) << endl;
-		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Round winner       :      " << Game.WinnerName(RoundResults.RoundWinner) << endl;
+		cout << "\n" << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "___________________ Round[" << RoundResults->RoundNumber << "] ___________________\n\n";
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " User choice        :      " << clsPlayer::ChoiceName(RoundResults->Player1Choice) << endl;
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Cpu choice         :      " << clsPlayer::ChoiceName(RoundResults->Player2Choice) << endl;
+		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Round winner       :      " << Game.WinnerName(RoundResults->RoundWinner) << endl;
 		cout << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "________________________________________________\n";
 	}
 

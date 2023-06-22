@@ -35,7 +35,7 @@ public:
 
 		// assign initial random choice
 		setRandomChoice();
-	};
+	}
 
 	enum enPlayer
 	{

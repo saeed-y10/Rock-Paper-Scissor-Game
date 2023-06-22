@@ -128,7 +128,7 @@ public:
 
 		short RoundNumber = 1;
 
-		RoundNumber = (_RoundsResults.empty() ? 1 : getLastRoundResults().RoundNumber + 1);
+		RoundNumber = (_RoundsResults.empty() ? 1 : getLastRoundResults()->RoundNumber + 1);
 
 		Results.RoundNumber = RoundNumber;
 		Results.Player1Choice = Player1.Choice;
@@ -163,21 +163,21 @@ public:
 	}
 
 	// get _RoundsResults structure has last round results
-	stRoundResults getLastRoundResults()
+	stRoundResults* getLastRoundResults()
 	{
 		if (_RoundsResults.empty())
-			return stRoundResults{};
+			return NULL;
 
-		return _RoundsResults.back();
+		return &_RoundsResults.back();
 	}
 
 	// get _RoundsResults structure by given round index
-	stRoundResults getRoundResults(short RoundIndex)
+	stRoundResults* getRoundResults(short RoundIndex)
 	{
 		if (_RoundsResults.size() < RoundIndex + 1)
-			return stRoundResults{};
+			return NULL;
 
-		return _RoundsResults[RoundIndex];
+		return &_RoundsResults[RoundIndex];
 	}
 
 	// get all rounds results vector of stRoundsResults structure 
