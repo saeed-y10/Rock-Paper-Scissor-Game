@@ -30,6 +30,13 @@ private:
 		return clsInputValidate::ReadNumber<short>(" Enter How Many Rounds To Play? ");
 	}
 
+	static void _PauseScreen()
+	{
+		cout << "\n Press Any Key To Continue...\n ";
+
+		system("pause > 0");
+	}
+
 	static void _ResetScreenColor()
 	{
 		system("color 0F");
@@ -56,8 +63,6 @@ private:
 
 	static void _PrintFinalResult(clsGame Game)
 	{
-		//clsUtil::ResetScreen();
-
 		clsGame::stGameResults Results = Game.getGameResults();
 
 		_ChangeScreenColor(Results.Winner);
@@ -84,6 +89,11 @@ private:
 		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Cpu choice         :      " << clsPlayer::ChoiceName(RoundResults->Player2Choice) << endl;
 		cout << clsUtil::Tabs(6) << clsUtil::Spaces(5) << " Round winner       :      " << Game.WinnerName(RoundResults->RoundWinner) << endl;
 		cout << clsUtil::Tabs(5) << clsUtil::Spaces(5) << "________________________________________________\n";
+
+		_PauseScreen();
+		_ResetScreenColor();
+
+		clsUtil::ResetScreen();
 	}
 
 	static void _ShowStartHeader()
